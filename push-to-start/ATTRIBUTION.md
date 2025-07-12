@@ -2,7 +2,7 @@
 ## Collaborators
 
 ### Role
-[Zachariah Jackson] (https://dragonruler1000.itch.io/)  - DEV
+[Zachariah Jackson](https://dragonruler1000.itch.io/)  - DEV
 [Bevistales](https://bevistales.bandcamp.com/) - Composer  
 
 ## Sourced
