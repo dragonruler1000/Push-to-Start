@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1i8mkp3o0oa1"]
+[gd_scene load_steps=6 format=3 uid="uid://d1i8mkp3o0oa1"]
 
 [ext_resource type="PackedScene" uid="uid://bt4kstcod3gq7" path="res://Player/player.tscn" id="1_0nr2a"]
+[ext_resource type="Script" uid="uid://hsq826lweklo" path="res://scenes/game_scene/tutorial_manager.gd" id="2_y0mvw"]
+[ext_resource type="PackedScene" uid="uid://4pbpp6fpl06c" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="3_w6i3l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0nr2a"]
 size = Vector2(1153, 94)
@@ -11,6 +13,12 @@ size = Vector2(20, 656)
 [node name="Level_1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_0nr2a")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(580, 325)
+rotation = 1.63886
+scale = Vector2(2.48517e+06, 3.67565e+07)
+skew = -0.23911
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -32,3 +40,15 @@ shape = SubResource("RectangleShape2D_2hhcp")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(1151, 327)
 shape = SubResource("RectangleShape2D_2hhcp")
+
+[node name="TutorialManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_y0mvw")
+tutorial_scenes = Array[PackedScene]([ExtResource("3_w6i3l")])
+
+[node name="TutorialButton" type="Button" parent="."]
+offset_left = 26.0
+offset_top = 605.0
+offset_right = 119.0
+offset_bottom = 636.0
+text = "Tutorial"
