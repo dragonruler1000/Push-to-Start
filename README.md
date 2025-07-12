@@ -1,2 +1,3 @@
 # Push-to-Start
-</br><img src="https://profile-counter.glitch.me/Dragonruler1000-push_to_start/count.svg" alt="Visitor Counter"/>
+## Project Views
+![View Count](https://visitor-badge.laobi.icu/badge?page_id=dragonruler1000.Push-to-Start)
