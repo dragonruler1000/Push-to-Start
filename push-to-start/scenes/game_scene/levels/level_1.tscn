@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1i8mkp3o0oa1"]
+[gd_scene load_steps=7 format=3 uid="uid://d1i8mkp3o0oa1"]
 
 [ext_resource type="PackedScene" uid="uid://bt4kstcod3gq7" path="res://Player/player.tscn" id="1_0nr2a"]
 [ext_resource type="Script" uid="uid://hsq826lweklo" path="res://scenes/game_scene/tutorial_manager.gd" id="2_y0mvw"]
@@ -10,6 +10,8 @@ size = Vector2(1153, 94)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hhcp"]
 size = Vector2(20, 656)
 
+[sub_resource type="TileSet" id="TileSet_y0mvw"]
+
 [node name="Level_1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_0nr2a")]
@@ -17,7 +19,7 @@ size = Vector2(20, 656)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(580, 325)
 rotation = 1.63886
-scale = Vector2(2.48517e+06, 3.67565e+07)
+scale = Vector2(7.99673e+06, 2.69545e+07)
 skew = -0.23911
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -52,3 +54,7 @@ offset_top = 605.0
 offset_right = 119.0
 offset_bottom = 636.0
 text = "Tutorial"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(4.85839, 3.68372)
+tile_set = SubResource("TileSet_y0mvw")
