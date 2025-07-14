@@ -21,6 +21,7 @@ func _ready() -> void:
 	%BackgroundColor.color = level_state.color
 	if not level_state.tutorial_read:
 		open_tutorials()
+	$player.playerspawn()
 
 func _on_color_picker_button_color_changed(color : Color) -> void:
 	%BackgroundColor.color = color
