@@ -10,3 +10,4 @@ func _on_cameraview_2_area_entered(_area:Area2D) -> void:
 	get_viewport().get_camera().current = false
 	$"Camera2".current = true
 	print("Camera switched to Camera2")
+    print("hi")
