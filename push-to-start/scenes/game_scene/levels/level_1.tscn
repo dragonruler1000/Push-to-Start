@@ -11,9 +11,8 @@ size = Vector2(20, 656)
 
 [sub_resource type="TileSet" id="TileSet_y0mvw"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_623lg"]
-a = Vector2(3, 365)
-b = Vector2(-5, -144)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0mvw"]
+size = Vector2(1148, 639)
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_w6i3l")
@@ -41,25 +40,65 @@ shape = SubResource("RectangleShape2D_2hhcp")
 position = Vector2(1151, 327)
 shape = SubResource("RectangleShape2D_2hhcp")
 
-[node name="TutorialButton" type="Button" parent="."]
-offset_left = 26.0
-offset_top = 605.0
-offset_right = 119.0
-offset_bottom = 636.0
-text = "Tutorial"
-
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(4.85839, 3.68372)
 tile_set = SubResource("TileSet_y0mvw")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1147, 287)
-shape = SubResource("SegmentShape2D_623lg")
-
 [node name="Camera1" type="Camera2D" parent="."]
-position = Vector2(582, 326)
+position = Vector2(56, 328)
 rotation = 1.63886
 scale = Vector2(59.335, 200)
 skew = -0.23911
+metadata/_edit_group_ = true
+
+[node name="cameraview1" type="Area2D" parent="Camera1"]
+position = Vector2(-7.29635, 3.0822)
+rotation = -1.04891
+scale = Vector2(0.00592297, 0.0170974)
+skew = -0.542359
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera1/cameraview1"]
+position = Vector2(576, 322.5)
+shape = SubResource("RectangleShape2D_y0mvw")
+
+[node name="Camera2" type="Camera2D" parent="."]
+position = Vector2(1209, 327)
+rotation = 1.63886
+scale = Vector2(59.335, 200)
+skew = -0.23911
+metadata/_edit_group_ = true
+
+[node name="cameraview2" type="Area2D" parent="Camera2"]
+position = Vector2(-5.40321, -0.0923257)
+rotation = -1.04891
+scale = Vector2(0.00592297, 0.0170974)
+skew = -0.542359
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2/cameraview2"]
+position = Vector2(-41, 319)
+shape = SubResource("RectangleShape2D_y0mvw")
+
+[node name="Control" type="Control" parent="."]
+layout_direction = 4
+layout_mode = 3
+anchors_preset = 0
+offset_left = 301.0
+offset_top = 425.0
+offset_right = 479.0
+offset_bottom = 515.0
+
+[node name="MovmentSign" type="RichTextLabel" parent="Control"]
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 175.0
+offset_bottom = 96.0
+bbcode_enabled = true
+text = "[center]Use A and D to move left and right and space to jump.[/center]"
+fit_content = true
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+z_index = -1
+layout_mode = 0
+offset_right = 180.0
+offset_bottom = 91.0
+color = Color(0, 0, 0, 1)
