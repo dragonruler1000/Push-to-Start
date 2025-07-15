@@ -37,7 +37,7 @@ position = Vector2(0, 318)
 shape = SubResource("RectangleShape2D_2hhcp")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(1151, 327)
+position = Vector2(1246, 950)
 shape = SubResource("RectangleShape2D_2hhcp")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -45,7 +45,7 @@ scale = Vector2(4.85839, 3.68372)
 tile_set = SubResource("TileSet_y0mvw")
 
 [node name="Camera1" type="Camera2D" parent="."]
-position = Vector2(56, 328)
+position = Vector2(66, 329)
 rotation = 1.63886
 scale = Vector2(59.335, 200)
 skew = -0.23911
@@ -56,13 +56,15 @@ position = Vector2(-7.29635, 3.0822)
 rotation = -1.04891
 scale = Vector2(0.00592297, 0.0170974)
 skew = -0.542359
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera1/cameraview1"]
 position = Vector2(576, 322.5)
 shape = SubResource("RectangleShape2D_y0mvw")
 
 [node name="Camera2" type="Camera2D" parent="."]
-position = Vector2(1209, 327)
+position = Vector2(1227, 325)
 rotation = 1.63886
 scale = Vector2(59.335, 200)
 skew = -0.23911
@@ -73,6 +75,8 @@ position = Vector2(-5.40321, -0.0923257)
 rotation = -1.04891
 scale = Vector2(0.00592297, 0.0170974)
 skew = -0.542359
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2/cameraview2"]
 position = Vector2(-41, 319)
@@ -88,6 +92,7 @@ offset_right = 479.0
 offset_bottom = 515.0
 
 [node name="MovmentSign" type="RichTextLabel" parent="Control"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 2.0
 offset_right = 175.0
@@ -102,3 +107,7 @@ layout_mode = 0
 offset_right = 180.0
 offset_bottom = 91.0
 color = Color(0, 0, 0, 1)
+
+[connection signal="body_entered" from="Camera1/cameraview1" to="." method="_on_cameraview_1_body_entered"]
+[connection signal="area_entered" from="Camera2/cameraview2" to="." method="_on_cameraview_2_area_entered"]
+[connection signal="body_entered" from="Camera2/cameraview2" to="." method="_on_cameraview_2_body_entered"]
