@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://d4frjhgup208y"]
 
-[ext_resource type="PackedScene" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.tscn" id="1_rr1rn"]
-[ext_resource type="Script" path="res://scenes/menus/main_menu/main_menu_with_animations.gd" id="2_sr523"]
-[ext_resource type="PackedScene" path="res://scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3_ixa71"]
-[ext_resource type="PackedScene" path="res://scenes/credits/scrollable_credits.tscn" id="4_2k5l7"]
+[ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.tscn" id="1_rr1rn"]
+[ext_resource type="Script" uid="uid://b18salho3wdvv" path="res://scenes/menus/main_menu/main_menu_with_animations.gd" id="2_sr523"]
+[ext_resource type="PackedScene" uid="uid://7gptf8agjoe7" path="res://scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3_ixa71"]
+[ext_resource type="PackedScene" uid="uid://cblil2113qosu" path="res://scenes/credits/scrollable_credits.tscn" id="4_2k5l7"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
@@ -367,11 +367,20 @@ tree_root = SubResource("AnimationNodeStateMachine_vikuh")
 anim_player = NodePath("../MenuAnimationPlayer")
 parameters/conditions/intro_done = false
 
+[node name="BackgroundMusicPlayer" parent="." index="3"]
+bus = &"Master"
+
 [node name="VersionContainer" parent="VersionMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
 
+[node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0"]
+text = "v0.1.0"
+
 [node name="TitleContainer" parent="MenuContainer/TitleMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
+
+[node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
+text = "Push to Start"
 
 [node name="SubTitleContainer" parent="MenuContainer/SubTitleMargin" index="0"]
 modulate = Color(1, 1, 1, 0)

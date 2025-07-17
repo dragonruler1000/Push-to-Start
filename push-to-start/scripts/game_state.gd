@@ -23,7 +23,8 @@ static func has_game_state() -> bool:
 	return GlobalState.has_state(STATE_NAME)
 
 static func get_game_state() -> GameState:
-	return GlobalState.get_state(STATE_NAME, FILE_PATH)
+	# return GlobalState.get_state(STATE_NAME, FILE_PATH)
+	return GlobalState.get_or_create_state(STATE_NAME, FILE_PATH)
 
 static func get_current_level() -> int:
 	var game_state := get_game_state()

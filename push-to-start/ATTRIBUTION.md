@@ -2,9 +2,8 @@
 ## Collaborators
 
 ### Role
-Person 1  
-Person 2  
-[Person w/ Link]()  
+[Zachariah Jackson](https://dragonruler1000.itch.io/)  - DEV
+[Bevistales](https://bevistales.bandcamp.com/) - Composer  
 
 ## Sourced
 ### Asset Type
