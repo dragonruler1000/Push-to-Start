@@ -1,24 +1,23 @@
-[gd_scene load_steps=14 format=3 uid="uid://d1i8mkp3o0oa1"]
+[gd_scene load_steps=14 format=4 uid="uid://d1i8mkp3o0oa1"]
 
 [ext_resource type="PackedScene" uid="uid://bt4kstcod3gq7" path="res://Player/player.tscn" id="1_0nr2a"]
 [ext_resource type="Script" uid="uid://basu2cwad7uvl" path="res://scenes/game_scene/levels/level.gd" id="1_2hhcp"]
 [ext_resource type="Script" uid="uid://hsq826lweklo" path="res://scenes/game_scene/tutorial_manager.gd" id="2_y0mvw"]
 [ext_resource type="PackedScene" uid="uid://4pbpp6fpl06c" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="3_w6i3l"]
 [ext_resource type="AudioStream" uid="uid://cnririni1nj5" path="res://assets/Music/NGE4.2.wav" id="5_623lg"]
+[ext_resource type="TileSet" uid="uid://bcluk8m6nqr3" path="res://Tile_set_1.tres" id="6_sycfm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0nr2a"]
-size = Vector2(1153, 94)
+size = Vector2(1153, 71)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w6i3l"]
-size = Vector2(2073, 62)
+size = Vector2(2073, 77)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_623lg"]
-size = Vector2(295, 46.5)
+size = Vector2(281, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hhcp"]
 size = Vector2(33, 717)
-
-[sub_resource type="TileSet" id="TileSet_y0mvw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0mvw"]
 size = Vector2(1148, 639)
@@ -39,34 +38,28 @@ script = ExtResource("1_2hhcp")
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
 offset_top = 556.0
 offset_right = 1153.0
-offset_bottom = 649.0
+offset_bottom = 627.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(577.5, 602)
+position = Vector2(577.5, 590.5)
 shape = SubResource("RectangleShape2D_0nr2a")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D3"]
 offset_left = 877.0
-offset_top = 433.0
+offset_top = 416.0
 offset_right = 2954.0
-offset_bottom = 493.0
+offset_bottom = 485.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(1910.5, 460)
+position = Vector2(1910.5, 447.5)
 shape = SubResource("RectangleShape2D_w6i3l")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D4"]
-offset_left = 3154.0
-offset_top = 440.0
-offset_right = 3451.0
-offset_bottom = 490.0
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
-position = Vector2(3301.5, 465.75)
+position = Vector2(3308.5, 448.5)
 shape = SubResource("RectangleShape2D_623lg")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
@@ -78,10 +71,6 @@ shape = SubResource("RectangleShape2D_2hhcp")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(3468, 349)
 shape = SubResource("RectangleShape2D_2hhcp")
-
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-scale = Vector2(4.85839, 3.68372)
-tile_set = SubResource("TileSet_y0mvw")
 
 [node name="Camera1" type="Camera2D" parent="."]
 visible = false
@@ -204,7 +193,7 @@ shape = SubResource("RectangleShape2D_sycfm")
 [node name="LevelEndArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEndArea"]
-position = Vector2(3380.75, 371.5)
+position = Vector2(3380.75, 344.5)
 shape = SubResource("RectangleShape2D_pmyid")
 
 [node name="BackgroundColor" type="ColorRect" parent="LevelEndArea"]
@@ -216,9 +205,9 @@ color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="LevelEndArea"]
 offset_left = 3311.0
-offset_top = 304.0
+offset_top = 273.0
 offset_right = 3452.0
-offset_bottom = 441.0
+offset_bottom = 410.0
 color = Color(0.231415, 0.543345, 0.392413, 1)
 
 [node name="Label" type="Label" parent="."]
@@ -234,6 +223,12 @@ position = Vector2(1938, 113)
 stream = ExtResource("5_623lg")
 autoplay = true
 max_distance = 4096.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(0, -20)
+scale = Vector2(4.5, 4.5)
+tile_map_data = PackedByteArray("AAAGACQAAAAPABAAAAAHACQAAAARABAAAAAHACUAAAAPABAAAAAIACUAAAAQABAAAAAJACUAAAAQABAAAAAKACUAAAAQABAAAAALACUAAAARABAAAAAGABIAAAARABAAAAAAAAgAAAAPABAAAAABAAgAAAAQABAAAAACAAgAAAAQABAAAAADAAgAAAAQABAAAAAEAAgAAAAQABAAAAAFAAgAAAAQABAAAAAGAAgAAAAQABAAAAAHAAgAAAAQABAAAAAIAAgAAAAQABAAAAAJAAgAAAAQABAAAAAKAAgAAAAQABAAAAALAAgAAAAQABAAAAAMAAgAAAAQABAAAAANAAgAAAAQABAAAAAOAAgAAAAQABAAAAAPAAgAAAARABAAAAAMAAYAAAAPABAAAAANAAYAAAAQABAAAAAOAAYAAAAQABAAAAAPAAYAAAAQABAAAAAQAAYAAAAQABAAAAARAAYAAAAQABAAAAASAAYAAAAQABAAAAATAAYAAAAQABAAAAAUAAYAAAAQABAAAAAVAAYAAAAQABAAAAAWAAYAAAAQABAAAAAXAAYAAAAQABAAAAAYAAYAAAAQABAAAAAZAAYAAAAQABAAAAAaAAYAAAAQABAAAAAbAAYAAAAQABAAAAAcAAYAAAAQABAAAAAdAAYAAAAQABAAAAAeAAYAAAAQABAAAAAfAAYAAAAQABAAAAAgAAYAAAAQABAAAAAhAAYAAAAQABAAAAAiAAYAAAAQABAAAAAjAAYAAAAQABAAAAAkAAYAAAAQABAAAAAlAAYAAAAQABAAAAAmAAYAAAAQABAAAAAnAAYAAAAQABAAAAAoAAYAAAARABAAAAAsAAYAAAAPABAAAAAtAAYAAAAQABAAAAAuAAYAAAAQABAAAAAvAAYAAAARABAAAAA=")
+tile_set = ExtResource("6_sycfm")
 
 [connection signal="body_entered" from="Camera1/cameraview1" to="." method="_on_cameraview_1_body_entered"]
 [connection signal="area_entered" from="Camera2/cameraview2" to="." method="_on_cameraview_2_area_entered"]
