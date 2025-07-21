@@ -20,5 +20,5 @@ text = "Tutorial"
 visible = true
 
 [node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
-text = "[center]Use A +D to move and space to jump or use the arrow keys to move and jump.[/center]"
+text = "[center]Use A, D, and Space to move and jump or use the arrow keys to move.[/center]"
 fit_content = true

@@ -7,11 +7,11 @@ var level_select_scene : Node
 var animation_state_machine : AnimationNodeStateMachinePlayback
 
 func load_game_scene() -> void:
-	GameState.start_game()
+	GameStateExample.start_game()
 	super.load_game_scene()
 
 func new_game() -> void:
-	if confirm_new_game and GameState.has_game_state():
+	if confirm_new_game and GameStateExample.has_game_state():
 		%NewGameConfirmationDialog.popup_centered()
 	else:
 		GlobalState.reset()
@@ -48,7 +48,7 @@ func _input(event : InputEvent) -> void:
 
 func _add_level_select_if_set() -> void: 
 	if level_select_packed_scene == null: return
-	if GameState.get_max_level_reached() <= 0 : return
+	if GameStateExample.get_max_level_reached() <= 0 : return
 	level_select_scene = level_select_packed_scene.instantiate()
 	level_select_scene.hide()
 	%LevelSelectContainer.call_deferred("add_child", level_select_scene)
@@ -57,7 +57,7 @@ func _add_level_select_if_set() -> void:
 	%LevelSelectButton.show()
 
 func _show_continue_if_set() -> void:
-	if GameState.has_game_state():
+	if GameStateExample.has_game_state():
 		%ContinueGameButton.show()
 
 func _ready() -> void:

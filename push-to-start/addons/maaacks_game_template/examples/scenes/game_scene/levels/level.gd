@@ -1,10 +1,7 @@
 extends Node
 
-signal level_lost
 signal level_won
-signal level_won_and_changed(level_path : String)
-
-@export_file("*.tscn") var next_level_path : String
+signal level_lost
 
 var level_state : LevelStateExample
 
@@ -12,10 +9,7 @@ func _on_lose_button_pressed() -> void:
 	level_lost.emit()
 
 func _on_win_button_pressed() -> void:
-	if not next_level_path.is_empty():
-		level_won_and_changed.emit(next_level_path)
-	else:
-		level_won.emit()
+	level_won.emit()
 
 func open_tutorials() -> void:
 	%TutorialManager.open_tutorials()

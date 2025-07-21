@@ -1,15 +1,79 @@
-[gd_scene load_steps=11 format=3 uid="uid://ui2gf1uism7h"]
+[gd_scene load_steps=11 format=3 uid="uid://c88jks6arxos4"]
 
-[ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/scripts/pause_menu_controller.gd" id="1_onvsj"]
 [ext_resource type="PackedScene" uid="uid://bkfvt0q28hyop" path="res://scenes/overlaid_menus/pause_menu.tscn" id="2_8qp3c"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/music_players/background_music_player.tscn" id="3_bmy5n"]
-[ext_resource type="Script" uid="uid://bbymrin0cm704" path="res://addons/maaacks_game_template/extras/scripts/level_loader.gd" id="4_7aihr"]
 [ext_resource type="Script" uid="uid://dyyia1tgv4p0b" path="res://scripts/level_list_and_state_manager.gd" id="5_3re04"]
 [ext_resource type="PackedScene" uid="uid://f4v3xx0ugne" path="res://scenes/overlaid_menus/game_won_menu.tscn" id="6_ascoc"]
 [ext_resource type="PackedScene" uid="uid://cxhvveqhsyvub" path="res://scenes/overlaid_menus/level_lost_menu.tscn" id="7_wr4n6"]
 [ext_resource type="PackedScene" uid="uid://cf4iu7nmjra8u" path="res://scenes/overlaid_menus/level_won_menu.tscn" id="8_ukb12"]
 [ext_resource type="PackedScene" uid="uid://bb86yltrjqj55" path="res://scenes/loading_screen/level_loading_screen.tscn" id="9_i7m4m"]
 [ext_resource type="Script" uid="uid://dq2l153elo8v6" path="res://scenes/game_scene/configurable_sub_viewport.gd" id="10_rkfhe"]
+
+[sub_resource type="GDScript" id="GDScript_vbgr5"]
+script/source = "extends Node
+
+## Node for opening a pause menu when detecting a 'ui_cancel' event.
+
+@export var pause_menu_packed : PackedScene
+@export var focused_viewport : Viewport
+
+func _unhandled_input(event : InputEvent) -> void:
+	if event.is_action_pressed(\"ui_cancel\"):
+		if not focused_viewport:
+			focused_viewport = get_viewport()
+		var _initial_focus_control = focused_viewport.gui_get_focus_owner()
+		var current_menu = pause_menu_packed.instantiate()
+		get_tree().current_scene.call_deferred(\"add_child\", current_menu)
+		await current_menu.tree_exited
+		if is_inside_tree() and _initial_focus_control:
+			_initial_focus_control.grab_focus()
+"
+
+[sub_resource type="GDScript" id="GDScript_bqcs8"]
+script/source = "@tool
+class_name LevelLoader
+extends Node
+## Loads scenes into a container.
+
+signal level_load_started
+signal level_loaded
+signal level_ready
+
+## Container where the level instance will be added.
+@export var level_container : Node
+## Optional reference to a loading screen in the scene.
+@export var level_loading_screen : LoadingScreen
+@export_group(\"Debugging\")
+@export var current_level : Node
+
+var is_loading : bool = false
+
+func _attach_level(level_resource : Resource):
+	assert(level_container != null, \"level_container is null\")
+	var instance = level_resource.instantiate()
+	level_container.call_deferred(\"add_child\", instance)
+	return instance
+
+func load_level(level_path : String):
+	if is_loading : return
+	if is_instance_valid(current_level):
+		current_level.queue_free()
+		await current_level.tree_exited
+		current_level = null
+	is_loading = true
+	SceneLoader.load_scene(level_path, true)
+	if level_loading_screen:
+		level_loading_screen.reset()
+	level_load_started.emit()
+	await SceneLoader.scene_loaded
+	is_loading = false
+	current_level = _attach_level(SceneLoader.get_resource())
+	if level_loading_screen:
+		level_loading_screen.close()
+	level_loaded.emit()
+	await current_level.ready
+	level_ready.emit()
+"
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -20,7 +84,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PauseMenuController" type="Node" parent="." node_paths=PackedStringArray("focused_viewport")]
-script = ExtResource("1_onvsj")
+script = SubResource("GDScript_vbgr5")
 pause_menu_packed = ExtResource("2_8qp3c")
 focused_viewport = NodePath("../ViewportContainer/ConfigurableSubViewport")
 
@@ -28,7 +92,7 @@ focused_viewport = NodePath("../ViewportContainer/ConfigurableSubViewport")
 bus = &"Master"
 
 [node name="LevelListLoader" type="Node" parent="." node_paths=PackedStringArray("level_container", "level_loading_screen")]
-script = ExtResource("4_7aihr")
+script = SubResource("GDScript_bqcs8")
 level_container = NodePath("../ViewportContainer/ConfigurableSubViewport")
 level_loading_screen = NodePath("../LevelLoadingScreen")
 
