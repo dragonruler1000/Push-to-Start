@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bt4kstcod3gq7"]
 
 [ext_resource type="Script" uid="uid://dth7jnfym8d2t" path="res://PlatformerController2D-1fcf58d14f4b951b5b6917099f235c94cdbb36d6/platformer_controller/platformer_controller.gd" id="1_4ntmi"]
-[ext_resource type="Texture2D" uid="uid://lxlnnbv1j835" path="res://icon.svg" id="1_l8h54"]
+[ext_resource type="Texture2D" uid="uid://cokl7nm2i46hy" path="res://icon.svg" id="1_l8h54"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btcbx"]
 size = Vector2(135, 136)
@@ -13,6 +13,7 @@ position = Vector2(11, 394)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_4ntmi")
+max_jump_height = 160.0
 can_hold_jump = true
 metadata/_custom_type_script = "uid://dth7jnfym8d2t"
 metadata/_edit_group_ = true

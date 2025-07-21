@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cblil2113qosu"]
+[gd_scene load_steps=3 format=3 uid="uid://diujqopjjmpas"]
 
 [ext_resource type="PackedScene" path="res://addons/maaacks_game_template/base/scenes/credits/scrollable_credits.tscn" id="1_jnbjt"]
 [ext_resource type="Script" path="res://scenes/credits/scrollable_credits.gd" id="2_35kdw"]

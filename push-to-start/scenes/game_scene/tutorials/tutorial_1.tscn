@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://4pbpp6fpl06c"]
+[gd_scene load_steps=2 format=3 uid="uid://bcwhhsemqvo8p"]
 
 [ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu.tscn" id="1_b2dkv"]
 
@@ -20,5 +20,5 @@ text = "Tutorial"
 visible = true
 
 [node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
-text = "[center]Use A, D, and Space to move and jump or use the arrow keys to move.[/center]"
+text = "[center]Use A and D to move left and right and space to jump. The arrow keys also work.[/center]"
 fit_content = true

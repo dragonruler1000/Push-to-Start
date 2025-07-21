@@ -18,8 +18,8 @@ func open_tutorials() -> void:
 
 func _ready() -> void:
 	level_state = GameState.get_level_state(scene_file_path)
-	%ColorPickerButton.color = level_state.color
-	%BackgroundColor.color = level_state.color
+	# %ColorPickerButton.color = level_state.color
+	# %BackgroundColor.color = level_state.color
 	if not level_state.tutorial_read:
 		open_tutorials()
 	
@@ -48,11 +48,11 @@ func _on_cameraview_3_body_entered(_body: Node2D) -> void:
 	print("area 3 entered")
 	$Camera3.make_current()
 
+func _on_cameraview_4_body_entered(_body:Node2D) -> void:
+	print("area 4 entered")
+	$Camera4.make_current()
+
 
 func _on_kill_box_body_entered(_body: Node2D) -> void:
 	level_lost.emit()
 	print("Kill box entered, level lost!")
-
-func _on_level_end_area_body_entered(_body:Node2D) -> void:
-	level_won.emit()
-	print("Level end area entered, level won!")

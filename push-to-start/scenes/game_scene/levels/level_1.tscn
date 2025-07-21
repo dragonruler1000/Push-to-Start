@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=4 uid="uid://d1i8mkp3o0oa1"]
+[gd_scene load_steps=13 format=4 uid="uid://dgl52ygs773k2"]
 
 [ext_resource type="PackedScene" uid="uid://bt4kstcod3gq7" path="res://Player/player.tscn" id="1_0nr2a"]
 [ext_resource type="Script" uid="uid://basu2cwad7uvl" path="res://scenes/game_scene/levels/level.gd" id="1_2hhcp"]
-[ext_resource type="Script" uid="uid://hsq826lweklo" path="res://scenes/game_scene/tutorial_manager.gd" id="2_y0mvw"]
-[ext_resource type="PackedScene" uid="uid://4pbpp6fpl06c" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="3_w6i3l"]
+[ext_resource type="Script" uid="uid://s3h2t5rmchb0" path="res://scenes/game_scene/tutorial_manager.gd" id="2_y0mvw"]
+[ext_resource type="PackedScene" uid="uid://bcwhhsemqvo8p" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="3_w6i3l"]
 [ext_resource type="AudioStream" uid="uid://cnririni1nj5" path="res://assets/Music/NGE4.2.wav" id="5_623lg"]
 [ext_resource type="TileSet" uid="uid://bcluk8m6nqr3" path="res://Tile_set_1.tres" id="6_sycfm"]
 
@@ -14,7 +14,7 @@ size = Vector2(1153, 71)
 size = Vector2(2073, 77)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_623lg"]
-size = Vector2(281, 65)
+size = Vector2(1065, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hhcp"]
 size = Vector2(33, 717)
@@ -24,9 +24,6 @@ size = Vector2(1148, 639)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sycfm"]
 size = Vector2(5040, 835)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmyid"]
-size = Vector2(137.5, 133)
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_2hhcp")
@@ -59,7 +56,7 @@ shape = SubResource("RectangleShape2D_w6i3l")
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
-position = Vector2(3308.5, 448.5)
+position = Vector2(3700.5, 448.5)
 shape = SubResource("RectangleShape2D_623lg")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
@@ -69,7 +66,7 @@ position = Vector2(0, 318)
 shape = SubResource("RectangleShape2D_2hhcp")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(3468, 349)
+position = Vector2(4251, 310)
 shape = SubResource("RectangleShape2D_2hhcp")
 
 [node name="Camera1" type="Camera2D" parent="."]
@@ -116,7 +113,6 @@ position = Vector2(-41, 319)
 shape = SubResource("RectangleShape2D_y0mvw")
 
 [node name="Camera3" type="Camera2D" parent="."]
-visible = false
 position = Vector2(2887, 333)
 rotation = 1.63886
 scale = Vector2(59.335, 200)
@@ -132,6 +128,26 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera3/cameraview3"]
+position = Vector2(-41, 319)
+shape = SubResource("RectangleShape2D_y0mvw")
+
+[node name="Camera4" type="Camera2D" parent="."]
+visible = false
+position = Vector2(4040, 335)
+rotation = 1.63886
+scale = Vector2(59.335, 200)
+skew = -0.23911
+metadata/_edit_group_ = true
+
+[node name="cameraview4" type="Area2D" parent="Camera4"]
+position = Vector2(-5.40321, -0.0923257)
+rotation = -1.04891
+scale = Vector2(0.00592297, 0.0170974)
+skew = -0.542359
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera4/cameraview4"]
 position = Vector2(-41, 319)
 shape = SubResource("RectangleShape2D_y0mvw")
 
@@ -163,12 +179,12 @@ offset_bottom = 91.0
 color = Color(0, 0, 0, 1)
 
 [node name="WinButton" type="Button" parent="."]
-offset_left = 3629.0
-offset_top = 335.0
-offset_right = 3749.0
-offset_bottom = 366.0
+offset_left = 3320.0
+offset_top = 316.0
+offset_right = 3440.0
+offset_bottom = 347.0
 size_flags_horizontal = 3
-text = "Start Game"
+text = "Next Level"
 
 [node name="ColorPickerButton" type="ColorPickerButton" parent="."]
 unique_name_in_owner = true
@@ -190,26 +206,6 @@ tutorial_scenes = Array[PackedScene]([ExtResource("3_w6i3l")])
 position = Vector2(1979, 1951)
 shape = SubResource("RectangleShape2D_sycfm")
 
-[node name="LevelEndArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEndArea"]
-position = Vector2(3380.75, 344.5)
-shape = SubResource("RectangleShape2D_pmyid")
-
-[node name="BackgroundColor" type="ColorRect" parent="LevelEndArea"]
-unique_name_in_owner = true
-visible = false
-offset_left = 48.0
-offset_right = 48.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect" type="ColorRect" parent="LevelEndArea"]
-offset_left = 3311.0
-offset_top = 273.0
-offset_right = 3452.0
-offset_bottom = 410.0
-color = Color(0.231415, 0.543345, 0.392413, 1)
-
 [node name="Label" type="Label" parent="."]
 visible = false
 offset_left = 89.0
@@ -225,6 +221,7 @@ autoplay = true
 max_distance = 4096.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+visible = false
 position = Vector2(0, -20)
 scale = Vector2(4.5, 4.5)
 tile_map_data = PackedByteArray("AAAGACQAAAAPABAAAAAHACQAAAARABAAAAAHACUAAAAPABAAAAAIACUAAAAQABAAAAAJACUAAAAQABAAAAAKACUAAAAQABAAAAALACUAAAARABAAAAAGABIAAAARABAAAAAAAAgAAAAPABAAAAABAAgAAAAQABAAAAACAAgAAAAQABAAAAADAAgAAAAQABAAAAAEAAgAAAAQABAAAAAFAAgAAAAQABAAAAAGAAgAAAAQABAAAAAHAAgAAAAQABAAAAAIAAgAAAAQABAAAAAJAAgAAAAQABAAAAAKAAgAAAAQABAAAAALAAgAAAAQABAAAAAMAAgAAAAQABAAAAANAAgAAAAQABAAAAAOAAgAAAAQABAAAAAPAAgAAAARABAAAAAMAAYAAAAPABAAAAANAAYAAAAQABAAAAAOAAYAAAAQABAAAAAPAAYAAAAQABAAAAAQAAYAAAAQABAAAAARAAYAAAAQABAAAAASAAYAAAAQABAAAAATAAYAAAAQABAAAAAUAAYAAAAQABAAAAAVAAYAAAAQABAAAAAWAAYAAAAQABAAAAAXAAYAAAAQABAAAAAYAAYAAAAQABAAAAAZAAYAAAAQABAAAAAaAAYAAAAQABAAAAAbAAYAAAAQABAAAAAcAAYAAAAQABAAAAAdAAYAAAAQABAAAAAeAAYAAAAQABAAAAAfAAYAAAAQABAAAAAgAAYAAAAQABAAAAAhAAYAAAAQABAAAAAiAAYAAAAQABAAAAAjAAYAAAAQABAAAAAkAAYAAAAQABAAAAAlAAYAAAAQABAAAAAmAAYAAAAQABAAAAAnAAYAAAAQABAAAAAoAAYAAAARABAAAAAsAAYAAAAPABAAAAAtAAYAAAAQABAAAAAuAAYAAAAQABAAAAAvAAYAAAARABAAAAA=")
@@ -234,6 +231,6 @@ tile_set = ExtResource("6_sycfm")
 [connection signal="area_entered" from="Camera2/cameraview2" to="." method="_on_cameraview_2_area_entered"]
 [connection signal="body_entered" from="Camera2/cameraview2" to="." method="_on_cameraview_2_body_entered"]
 [connection signal="body_entered" from="Camera3/cameraview3" to="." method="_on_cameraview_3_body_entered"]
+[connection signal="body_entered" from="Camera4/cameraview4" to="." method="_on_cameraview_3_body_entered"]
 [connection signal="pressed" from="WinButton" to="." method="_on_win_button_pressed"]
 [connection signal="body_entered" from="KillBox" to="." method="_on_kill_box_body_entered"]
-[connection signal="body_entered" from="LevelEndArea" to="." method="_on_level_end_area_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxhvveqhsyvub"]
+[gd_scene load_steps=3 format=3 uid="uid://kc5nqstknjfp"]
 
 [ext_resource type="PackedScene" path="res://addons/maaacks_game_template/extras/scenes/overlaid_menus/level_lost_menu.tscn" id="1_wvmyj"]
 [ext_resource type="Script" path="res://scenes/overlaid_menus/level_lost_menu.gd" id="2_v0vqr"]
