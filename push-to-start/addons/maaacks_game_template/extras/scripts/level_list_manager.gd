@@ -136,6 +136,7 @@ func _on_level_loader_level_load_started() -> void:
 		level_loading_screen.reset()
 
 func _ready() -> void:
+	level_list_loader != null
 	level_list_loader.level_loaded.connect(_on_level_loader_level_loaded)
 	level_list_loader.levels_finished.connect(_on_level_loader_levels_finished)
 	level_list_loader.level_load_started.connect(_on_level_loader_level_load_started)
